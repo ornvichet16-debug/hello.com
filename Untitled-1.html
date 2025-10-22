@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Do you love me?</title>
+  <style>
+    body {
+      background-color: #ffe6eb;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: "Poppins", sans-serif;
+    }
+
+    h1 {
+      font-size: 2em;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    .question-container {
+      position: relative;
+      text-align: center;
+    }
+
+    img {
+      width: 150px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      padding: 12px 25px;
+      border: none;
+      border-radius: 25px;
+      background-color: #ff758f;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 0 10px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #ff4b6e;
+    }
+
+    #noBtn {
+      position: absolute;
+    }
+
+    #gifResult {
+      display: none;
+      font-size: 22px;
+      color: #ff4b6e;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="question-container" id="questionContainer">
+    <img src="https://media.gettyimages.com/id/523761634/photo/cute-panda-bear-climbing-in-tree.jpg?b=1&s=1024x1024&w=gi&k=20&c=TpzAmF5caEMPXaMVldk1VvkZa0qXQjNaKjiAEX8sY-g=" alt="cute bear" />
+    <h1>Do you love me?</h1>
+    <button id="yesBtn" class="btn">Yes</button>
+    <button id="noBtn" class="btn">No</button>
+    <div id="gifResult">Yay! I love you too 💕</div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const questionContainer = document.getElementById("questionContainer");
+    const gifResult = document.getElementById("gifResult");
+
+    // Move the "No" button randomly on hover
+    noBtn.addEventListener("mouseover", () => {
+      const newX = Math.floor(Math.random() * (window.innerWidth - 100));
+      const newY = Math.floor(Math.random() * (window.innerHeight - 100));
+      noBtn.style.position = "absolute";
+      noBtn.style.left = `${newX}px`;
+      noBtn.style.top = `${newY}px`;
+    });
+
+    // Show cute message when "Yes" is clicked
+    yesBtn.addEventListener("click", () => {
+      gifResult.style.display = "block";
+      yesBtn.style.display = "none";
+      noBtn.style.display = "none";
+    });
+  </script>
+</body>
+</html>
